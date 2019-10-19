@@ -1,15 +1,14 @@
-import Relax from './../views/relax'
-import Resume from './../views/resume/index'
-import Synopsis from './../views/synopsis/index'
-import Technology from './../views/technology/index'
-
+import Relax from '@/views/relax'
+import Resume from '@/views/resume/index'
+import Synopsis from '@/views/synopsis/index'
+import Technology from '@/views/technology/index'
 
 export default [{
-    path: '/relax',
-    component: Relax
-}, {
     path: '/resume',
     component: Resume
+}, {
+    path: '/relax',
+    component: Relax
 }, {
     path: '/synopsis',
     component: Synopsis

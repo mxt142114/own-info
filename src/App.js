@@ -1,8 +1,9 @@
 import React, { useState } from 'react'
-import Routes from './router'
 import { Layout } from 'antd'
+import Routes from './router'
 import { menuList } from './data'
 import classnames from 'classnames'
+import Icon from '@/component/icon'
 import { HashRouter as Router, Route, Switch } from "react-router-dom"
 import './style.scss'
 
@@ -14,16 +15,22 @@ export default () => {
     return (
         <Layout className="pages-app">
             <Header className="header">
-                {
-                    menuList.map((item, index) => {
-                        return <a
-                            key={index}
-                            href={`#/${item.src}`}
-                            onClick={() => setSelectKeys(index)}
-                            className={classnames('item', { active: selectKeys === index })}
-                        >{item.name}</a>
-                    })
-                }
+                <div className="menuList">
+                    {
+                        menuList.map((item, index) => {
+                            return <a
+                                key={index}
+                                href={`#/${item.src}`}
+                                onClick={() => setSelectKeys(index)}
+                                className={classnames('item', { active: selectKeys === index })}
+                            >{item.name}</a>
+                        })
+                    }
+                </div>
+                <a className="github" href="https://github.com/mxt142114">
+                    <span>github</span>
+                    <Icon type="iconiconzhengli_fenxiang" />
+                </a>
             </Header>
             <Content className="content">
                 <Router>

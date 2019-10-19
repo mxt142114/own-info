@@ -1,6 +1,6 @@
-import React, {Component} from 'react'
-import {Descriptions} from 'antd'
-import {relaxList} from './../../data'
+import React, { Component } from 'react'
+import { Descriptions } from 'antd'
+import { relaxList } from '@/data'
 import './style.scss'
 
 class Relax extends Component {

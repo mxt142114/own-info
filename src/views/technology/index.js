@@ -1,9 +1,9 @@
-import React, {Component} from 'react'
-import {Tabs} from 'antd'
-import {technologyList} from '../../data'
+import React, { Component } from 'react'
+import { Tabs } from 'antd'
+import { technologyList } from '@/data'
 import './style.scss'
 
-const {TabPane} = Tabs
+const { TabPane } = Tabs
 
 class Technology extends Component {
 
@@ -14,7 +14,7 @@ class Technology extends Component {
                     {
                         technologyList.map((item, index) =>
                             <TabPane tab={item.title} key={index}>
-                                <iframe src={item.url} width="100%" height="700px" scrolling="yes" frameborder="1"/>
+                                <iframe src={item.url} width="100%" height="700px" scrolling="yes" frameborder="1" />
                             </TabPane>
                         )
                     }

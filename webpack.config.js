@@ -39,11 +39,15 @@ module.exports = {
             template: './public/index.html'
         })
     ],
+    resolve: {
+        alias: {
+            '@': path.resolve('src')
+        },
+    },
     resolveLoader: { // 独立解析选项的loader
 
     },
     performance: false, // 性能提示
-    parallelism: 1, // 限制并行处理模块的数量
     profile: false, // 捕获时机信息
     bail: false, // 在第一个错误出错时抛出，而不是无视错误
     cache: false, // 禁用/启用缓存
