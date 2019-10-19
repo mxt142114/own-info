@@ -1,14 +1,10 @@
 import React, { useState } from 'react'
+import Routes from './router'
 import { Layout } from 'antd'
 import { menuList } from './data'
 import classnames from 'classnames'
 import { HashRouter as Router, Route, Switch } from "react-router-dom"
 import './style.scss'
-
-import Relax from './views/relax'
-import Resume from './views/resume/index'
-import Synopsis from './views/synopsis/index'
-import Technology from './views/technology/index'
 
 const { Header, Footer, Content } = Layout
 
@@ -32,11 +28,9 @@ export default () => {
             <Content className="content">
                 <Router>
                     <Switch>
-                        <Route path="/relax" component={Relax} />
-                        <Route path="/resume" component={Resume} />
-                        <Route path="/synosis" component={Synopsis} />
-                        <Route path="/technology" component={Technology} />
-                        <Route path="/" component={Synopsis} />
+                        {
+                            Routes.map((item, index) => <Route key={index} path={item.path} component={item.component} />)
+                        }
                     </Switch>
                 </Router>
             </Content>
