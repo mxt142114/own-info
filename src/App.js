@@ -9,7 +9,7 @@ import './style.scss'
 
 const { Header, Footer, Content } = Layout
 
-export default () => {
+export default props => {
     const [selectKeys, setSelectKeys] = useState(0)
 
     return (
@@ -27,7 +27,7 @@ export default () => {
                         })
                     }
                 </div>
-                <a className="github" href="https://github.com/mxt142114">
+                <a className="github" target="_Blank" href="https://github.com/mxt142114">
                     <span>github</span>
                     <Icon type="iconiconzhengli_fenxiang" />
                 </a>
@@ -36,7 +36,9 @@ export default () => {
                 <Router>
                     <Switch>
                         {
-                            Routes.map((item, index) => <Route key={index} path={item.path} component={item.component} />)
+                            Routes.map((item, index) =>
+                                <Route key={index} path={item.path} exact={item.exact} component={item.component} />
+                            )
                         }
                     </Switch>
                 </Router>

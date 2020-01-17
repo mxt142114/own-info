@@ -1,43 +1,24 @@
-import React, { useState } from 'react'
-import { Descriptions, Upload, Modal, Divider } from 'antd'
-import './style.scss'
+import React from 'react'
+import { Avatar, Descriptions, Divider } from 'antd'
 
 export default () => {
-    const [vsible, setVisible] = useState(false)
-    const [previewImage, setPreviewInamge] = useState()
-
-    const fileList = [{
-        uid: '-1',
-        status: 'done',
-        name: 'image.png',
-        url: require('@/images/head.png')
-    }]
-
-    /**
-     * 查看头像
-     */
-    const handlePreview = file => {
-        setPreviewInamge(file.url)
-        setVisible(true)
-    }
 
     return (
         <div className="pages-views-resume">
             <Descriptions title="基本信息" column={2}>
                 <Descriptions.Item label="姓名">马啸天</Descriptions.Item>
                 <Descriptions.Item label="头像">
-                    <Upload
-                        disabled
-                        fileList={fileList}
-                        listType="picture-card"
-                        onPreview={handlePreview}
+                    <Avatar
+                        size={64}
+                        shape="square"
+                        src={require('@/images/head.png')}
                     />
                 </Descriptions.Item>
                 <Descriptions.Item label="性别">男</Descriptions.Item>
                 <Descriptions.Item label="出生日期">1994-10-13</Descriptions.Item>
                 <Descriptions.Item label="参加工作时间">2016-07</Descriptions.Item>
                 <Descriptions.Item label="现居住城市">北京市</Descriptions.Item>
-                <Descriptions.Item label="户口所在地">临汾市</Descriptions.Item>
+                <Descriptions.Item label="户口所在地">山西省临汾市</Descriptions.Item>
                 <Descriptions.Item label="联系方式">17744492232</Descriptions.Item>
                 <Descriptions.Item label="电子邮箱">mxt142114@163.com</Descriptions.Item>
             </Descriptions>
@@ -58,9 +39,9 @@ export default () => {
                 <Descriptions.Item label="公司名称">北京嘉润云众健康科技有限公司</Descriptions.Item>
                 <Descriptions.Item label="职位名称">web前端开发工程师</Descriptions.Item>
                 <Descriptions.Item label="职位类别">web前端</Descriptions.Item>
-                <Descriptions.Item label="在职时间">2018-08至2020-04</Descriptions.Item>
+                <Descriptions.Item label="在职时间">2018-08至今</Descriptions.Item>
                 <Descriptions.Item label="所属行业">互联网</Descriptions.Item>
-                <Descriptions.Item label="月薪">13000元/月</Descriptions.Item>
+                <Descriptions.Item label="月薪">15000元/月</Descriptions.Item>
                 <Descriptions.Item label="工作描述">
                     <p>01：根据公司项目需求，利用Vue、React前端框架高效完成前端页面的开发</p>
                     <p>02：负责产品线上产品的跟新迭代及维护</p>
@@ -121,13 +102,6 @@ export default () => {
                 <Descriptions.Item>03：有很强的团队协作意识，保证团队的项目进度！</Descriptions.Item>
                 <Descriptions.Item>04：性格很好，和同事能愉快的相处并能很快适应新环境！</Descriptions.Item>
             </Descriptions>
-            <Modal
-                footer={null}
-                visible={vsible}
-                onCancel={() => setVisible(false)}
-            >
-                <img alt="example" style={{ width: '100%' }} src={previewImage} />
-            </Modal>
         </div>
     )
 }

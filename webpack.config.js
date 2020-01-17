@@ -1,4 +1,5 @@
 const path = require('path')
+const webpack = require('webpack')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 
 module.exports = {
@@ -10,7 +11,7 @@ module.exports = {
     },
     module: { // 模块配置
         rules: [{
-            test: /\.js$/,
+            test: /\.(js|jsx)$/,
             use: ['babel-loader']
         }, { // 加载css
             test: /\.css$/,
@@ -36,20 +37,18 @@ module.exports = {
     },
     plugins: [ // 附加插件列表
         new HtmlWebpackPlugin({
-            template: './public/index.html'
-        })
+            template: 'index.html'
+        }),
+        new webpack.HotModuleReplacementPlugin()
     ],
     resolve: {
         alias: {
             '@': path.resolve('src')
-        },
-    },
-    resolveLoader: { // 独立解析选项的loader
-
+        }
     },
     performance: false, // 性能提示
-    profile: false, // 捕获时机信息
-    bail: false, // 在第一个错误出错时抛出，而不是无视错误
-    cache: false, // 禁用/启用缓存
-    watch: false // 启用观察
+    profile: true, // 捕获时机信息
+    bail: true, // 在第一个错误出错时抛出，而不是无视错误
+    cache: true, // 禁用/启用缓存
+    watch: true // 启用观察
 }
