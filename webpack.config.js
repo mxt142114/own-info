@@ -6,7 +6,7 @@ module.exports = {
     mode: "development", // production、development、none
     entry: './src/index.js', // string | object | array
     output: {
-        path: path.resolve(__dirname, 'dist'),
+        path: path.resolve(__dirname, 'docs'),
         filename: "build.js"
     },
     module: { // 模块配置
@@ -37,7 +37,7 @@ module.exports = {
     },
     plugins: [ // 附加插件列表
         new HtmlWebpackPlugin({
-            template: 'index.html'
+            template: 'public/index.html'
         }),
         new webpack.HotModuleReplacementPlugin()
     ],
