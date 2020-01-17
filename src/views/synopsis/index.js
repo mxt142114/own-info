@@ -6,6 +6,13 @@ const { Meta } = Card
 
 export default () => {
 
+    const bannerList = [
+        'http://pic.90sjimg.com/back_origin_pic/05/62/44/2b8fb86482af15adba2dc791d0f1ed1a.jpg',
+        'http://pic.90sjimg.com/back_origin_pic/05/61/02/373d925d32d3ae01a4ec9c4db96fcf64.jpg',
+        'http://pic.90sjimg.com/back_origin_pic/05/67/24/02ff81729931d01a054e1e30d1e65f2f.jpg',
+        'http://pic.90sjimg.com/back_origin_pic/05/74/07/6c1e1ddcac9faf180b4a8c8769a7c6ec.jpg'
+    ]
+
     const CardList = [{
         imgUrl: require('@/images/head.png'),
         title: 'Europe Street beat'
@@ -26,18 +33,11 @@ export default () => {
     return (
         <div className="pages-views-synopsis">
             <Carousel autoplay>
-                <div>
-                    <h3>1</h3>
-                </div>
-                <div>
-                    <h3>2</h3>
-                </div>
-                <div>
-                    <h3>3</h3>
-                </div>
-                <div>
-                    <h3>4</h3>
-                </div>
+                {
+                    bannerList.map((item, index) => {
+                        return <img src={item} alt="" />
+                    })
+                }
             </Carousel>
             <div className="content_list">
                 {

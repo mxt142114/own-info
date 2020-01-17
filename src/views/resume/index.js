@@ -19,7 +19,7 @@ export default () => {
                 <Descriptions.Item label="参加工作时间">2016-07</Descriptions.Item>
                 <Descriptions.Item label="现居住城市">北京市</Descriptions.Item>
                 <Descriptions.Item label="户口所在地">山西省临汾市</Descriptions.Item>
-                <Descriptions.Item label="联系方式">17744492232</Descriptions.Item>
+                <Descriptions.Item label="联系方式">177****2232</Descriptions.Item>
                 <Descriptions.Item label="电子邮箱">mxt142114@163.com</Descriptions.Item>
             </Descriptions>
             <Descriptions title="教育经历" column={2}>

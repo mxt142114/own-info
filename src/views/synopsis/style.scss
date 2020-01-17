@@ -1,14 +1,11 @@
 .pages-views-synopsis {
 
     .slick-slide {
-        text-align: center;
-        height: 250px;
-        line-height: 250px;
-        background: #364d79;
-        overflow: hidden;
+        overflow-y: hidden;
 
-        h3 {
-            color: #fff;
+        img {
+            max-height: 500px;
+            width: auto;
         }
     }
 

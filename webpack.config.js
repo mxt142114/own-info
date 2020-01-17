@@ -6,7 +6,7 @@ module.exports = {
     mode: "development", // production、development、none
     entry: './src/index.js', // string | object | array
     output: {
-        path: path.resolve(__dirname, 'docs'),
+        path: path.resolve(__dirname, 'dist'),
         filename: "build.js"
     },
     module: { // 模块配置
