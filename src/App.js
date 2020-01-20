@@ -3,7 +3,6 @@ import { Layout } from 'antd'
 import Routes from './router'
 import { menuList } from './data'
 import classnames from 'classnames'
-import Icon from '@/component/icon'
 import { HashRouter as Router, Route, Switch } from "react-router-dom"
 import './style.scss'
 
@@ -22,14 +21,14 @@ export default props => {
                                 key={index}
                                 href={`#/${item.src}`}
                                 onClick={() => setSelectKeys(index)}
-                                className={classnames('item', { active: selectKeys === index })}
+                                className={classnames('item', { active: selectKeys == index })}
                             >{item.name}</a>
                         })
                     }
                 </div>
                 <a className="github" target="_Blank" href="https://github.com/mxt142114">
                     <span>github</span>
-                    <Icon type="iconiconzhengli_fenxiang" />
+                    <span className="iconfont icon-fenxiang" />
                 </a>
             </Header>
             <Content className="content">

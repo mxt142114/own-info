@@ -1,0 +1,50 @@
+$font_size: 1 10 11 12 13 14 15 16 17 18 20 25 30;
+$padding_num: 5 10 15 20 25 30 40 50;
+
+@each $num in $font_size {
+  .ft#{$num} {
+    font-size: #{$num}px !important;
+  }
+}
+
+@each $num in $padding_num {
+  .p#{$num} {
+    padding: #{$num}px !important;
+  }
+
+  .pr#{$num} {
+    padding-right: #{$num}px !important;
+  }
+
+  .pl#{$num} {
+    padding-left: #{$num}px !important;
+  }
+
+  .pb#{$num} {
+    padding-bottom: #{$num}px !important;
+  }
+
+  .pt#{$num} {
+    padding-top: #{$num}px !important;
+  }
+
+  .m#{$num} {
+    margin: #{$num}px !important;
+  }
+
+  .mr#{$num} {
+    margin-right: #{$num}px !important;
+  }
+
+  .ml#{$num} {
+    margin-left: #{$num}px !important;
+  }
+
+  .mb#{$num} {
+    margin-bottom: #{$num}px !important;
+  }
+
+  .mt#{$num} {
+    margin-top: #{$num}px !important;
+  }
+}

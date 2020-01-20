@@ -1,6 +1,7 @@
 const path = require('path')
 const webpack = require('webpack')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
+const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 
 module.exports = {
     mode: "development", // production、development、none
@@ -12,32 +13,48 @@ module.exports = {
     module: { // 模块配置
         rules: [{
             test: /\.(js|jsx)$/,
-            use: ['babel-loader']
-        }, { // 加载css
+            use: [{
+                loader: 'babel-loader',
+                options: {
+                    cacheDirectory: true
+                }
+            }, {
+                loader: 'eslint-loader',
+                options: {
+                    formatter: require('eslint-friendly-formatter')
+                }
+            }],
+            enforce: "pre",
+            exclude: /node_modules/,
+            include: [path.resolve(__dirname, 'src')]
+        }, { // 解析css
             test: /\.css$/,
-            use: ['style-loader', 'css-loader']
-        }, { // 加载图片
+            use: [MiniCssExtractPlugin.loader, 'css-loader']
+        }, { // 解析图片
             test: /\.(png|svg|jpg|gif)$/,
             use: ['file-loader']
-        }, {
+        }, { // 解析sass/scss文件
             test: /\.s[a|c]ss$/,
-            use: ['style-loader', 'css-loader', 'sass-loader']
-        }, {
+            use: [MiniCssExtractPlugin.loader, 'css-loader', 'sass-loader']
+        }, { // 解析less文件
             test: /\.less$/,
-            use: ['style-loader', 'css-loader', 'less-loader']
+            use: [MiniCssExtractPlugin.loader, 'css-loader', 'less-loader']
         }]
     },
     target: 'web', // 运行环境
-    devServer: {
+    devServer: { // webpack-dev-server相关配置
         hot: true,
-        open: true,
         port: 4000,
-        https: false,
+        https: true,
         host: 'localhost'
     },
     plugins: [ // 附加插件列表
         new HtmlWebpackPlugin({
             template: 'public/index.html'
+        }),
+        new MiniCssExtractPlugin({
+            filename: '[name].css',
+            chunkFilename: '[id].css'
         }),
         new webpack.HotModuleReplacementPlugin()
     ],
